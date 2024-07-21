@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-int main()
+void main()
 {
     int a, b;
 
@@ -27,6 +27,4 @@ int main()
     {
         printf("\nB = %d is greater than A = %d\n", b, a);
     }
-
-    return 0;
 }

@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-int main()
+void main()
 {
     if(printf("Hello world!\n")){}
 }

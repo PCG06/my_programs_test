@@ -3,13 +3,11 @@
 
 #include <stdio.h>
 
-int main()
+void main()
 {
     int a = 25, b = 35, c;
 
     c = a + b;
 
     printf("Addition of %d and %d = %d\n", a, b, c);
-
-    return 0;
 }

@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-int main()
+void main()
 {
     int m1, m2, m3, total;
     float avg;
@@ -20,6 +20,4 @@ int main()
 
     printf("\nTotal marks = %d", total);
     printf("\nAverage marks = %.2f\n", avg);
-
-    return 0;
 }

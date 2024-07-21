@@ -4,7 +4,7 @@ Formula: https://en.wikipedia.org/wiki/Area_of_a_triangle#Using_side_lengths_(He
 #include <stdio.h>
 #include <math.h>
 
-int main()
+void main()
 {
     float a, b, c, sides, area;
 
@@ -15,6 +15,4 @@ int main()
     area = sqrt(sides * (sides - a) * (sides - b) * (sides - c));
 
     printf("\nArea of triangle = %.2f\n", area);
-
-    return 0;
 }

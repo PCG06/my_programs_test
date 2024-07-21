@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-int main()
+void main()
 {
     int a, b, c;
 
@@ -12,6 +12,4 @@ int main()
     c = a + b;
 
     printf("\nThe sum of %d and %d is = %d\n", a, b, c);
-
-    return 0;
 }

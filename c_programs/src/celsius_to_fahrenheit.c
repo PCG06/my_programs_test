@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-int main()
+void main()
 {
     float cels, fahr;
 
@@ -12,6 +12,4 @@ int main()
     fahr = (cels * 9/5) + 32;
 
     printf("\nTemperature %.2f in Celsius is %.2f in Fahrenheit\n", cels, fahr);
-
-    return 0;
 }
