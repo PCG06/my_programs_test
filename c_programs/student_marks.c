@@ -8,11 +8,11 @@ int main()
     int m1, m2, m3, total;
     float avg;
 
-    printf("Enter the marks in first subject = ");
+    printf("Enter the marks in first subject: ");
     scanf("%d", &m1);
-    printf("Enter the marks in second subject = ");
+    printf("Enter the marks in second subject: ");
     scanf("%d", &m2);
-    printf("Enter the marks in third subject = ");
+    printf("Enter the marks in third subject: ");
     scanf("%d", &m3);
 
     total = m1 + m2 + m3;
