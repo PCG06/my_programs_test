@@ -2,6 +2,34 @@ This is my personal school stuff, compiled with gcc (Ubuntu 11.4.0-1ubuntu1~22.0
 
 RIP conio.h, you were a real one.
 
+## Compiling and running
+Steps to compile a C program.
+
+- Enter the `c_programs` directory.
+  ```bash
+  cd c_programs
+  ```
+- Compiling.
+
+  - Let's assume you're compiling hello.c,
+  ```bash
+  gcc hello.c -o hello.o
+  ```
+  - In other places, replace `hello.c` and `hello.o` with the appropriate file name.
+
+- Running.
+
+   - Again, assuming you're running hello.c
+     ```bash
+     ./hello.o
+     ```
+   - If you're outside the `c_programs` directory
+     ```bash
+     ./c_programs/hello.o
+     ```
+
+And that's it. Enjoy :)
+
 Sources:
 - [Compile C program with gcc compiler on Bash on Ubuntu on Windows 10 & 11](https://developerinsider.co/compile-c-program-with-gcc-compiler-on-bash-on-ubuntu-on-windows-10/)
 - [Turbo C++](https://developerinsider.co/download-turbo-c-for-windows-7-8-8-1-and-windows-10-32-64-bit-full-screen/)
