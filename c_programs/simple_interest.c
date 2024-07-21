@@ -4,7 +4,7 @@
 
 int main()
 {
-    int p,t,r,si;
+    int p, t, r, si;
     printf("Enter the principle amount = ");
     scanf("%d", &p);
     printf("Enter the time = ");
