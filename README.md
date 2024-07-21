@@ -1,10 +1,14 @@
 This is my personal school stuff, compiled with gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0.
 
-RIP `conio.h`, you were a real one.
+RIP `conio.h`, you were a real one... Not.
 
 ## Compiling and running
 Steps to compile a C program.
 
+### All programs
+Just use `make`, bro. :)
+
+### Individual program
 If you're compiling and running on Turbo C++, please don't forget to do the following steps
 
 ```diff
@@ -26,7 +30,7 @@ You need to include `conio.h`, and use the functions `clrscr()` before printing 
 
 - Enter the `c_programs` directory.
   ```bash
-  cd c_programs
+  cd c_programs/src
   ```
 - Compiling.
 
@@ -44,7 +48,7 @@ You need to include `conio.h`, and use the functions `clrscr()` before printing 
      ```
    - If you're outside the `c_programs` directory
      ```bash
-     ./c_programs/hello.o
+     ./c_programs/src/hello.o
      ```
 
 And that's it. Enjoy :)
@@ -54,6 +58,7 @@ Sources:
 - [Turbo C++](https://developerinsider.co/download-turbo-c-for-windows-7-8-8-1-and-windows-10-32-64-bit-full-screen/)
 
 Credits:
-- anyone who wrote these programs (me).
+- anyone who wrote these programs (me, and everyone who contributed).
+- ChatGPT for writing the Makefile (yes I got desperate).
 - my C lecturer.
 - [Vineet Choudhary](https://developerinsider.co/author/vineet/).
