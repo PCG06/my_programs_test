@@ -1,9 +1,28 @@
 This is my personal school stuff, compiled with gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0.
 
-RIP conio.h, you were a real one.
+RIP `conio.h`, you were a real one.
 
 ## Compiling and running
 Steps to compile a C program.
+
+If you're compiling and running on Turbo C++, please don't forget to do the following steps
+
+```diff
+  #include <stdio.h>
++ #include <conio.h>
+
+  void main()
+  {
+      int a, b, c;
++     clrscr();
+      ...
+      ...
++     getch();
+  }
+```
+
+You need to include `conio.h`, and use the functions `clrscr()` before printing statements, and `getch()` at the bottom.
+
 
 - Enter the `c_programs` directory.
   ```bash
@@ -35,5 +54,6 @@ Sources:
 - [Turbo C++](https://developerinsider.co/download-turbo-c-for-windows-7-8-8-1-and-windows-10-32-64-bit-full-screen/)
 
 Credits:
-- anyone who wrote these programs (me.)
-- [Vineet Choudhary](https://developerinsider.co/author/vineet/)
+- anyone who wrote these programs (me).
+- my C lecturer.
+- [Vineet Choudhary](https://developerinsider.co/author/vineet/).
