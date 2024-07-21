@@ -8,6 +8,11 @@ Steps to compile a C program.
 ### All programs
 Just use `make`, bro. :)
 
+To run any program, in this case let's assume it's hello.c
+```bash
+./build/hello
+```
+
 ### Individual program
 If you're compiling and running on Turbo C++, please don't forget to do the following steps
 
