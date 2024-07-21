@@ -6,12 +6,27 @@ RIP `conio.h`, you were a real one... Not.
 Steps to compile a C program.
 
 ### All programs
-Just use `make`, bro. :)
+Just `make`, bro. :)
+
+```bash
+make
+```
+
+`make` will build all source files present in c_programs/src.
 
 To run any program, in this case let's assume it's hello.c
+
 ```bash
 ./build/hello
 ```
+
+In case you want to erase all build artifacts,
+
+```bash
+make clean
+```
+
+`make clean` will erase all build artifacts, allowing you to `make` again.
 
 ### Individual program
 If you're compiling and running on Turbo C++, please don't forget to do the following steps
