@@ -8,9 +8,14 @@ int main()
 {
     int a, b, c;
     float sides, area;
+
     printf("Enter the sides = ");
     scanf("%d%d%d", &a, &b, &c);
+
     sides = (a + b + c) / 2.0;
     area = sqrt(sides * (sides - a) * (sides - b) * (sides - c));
+
     printf("\nArea of triangle with sides %d, %d, %d = %.2f\n", a, b, c, area);
+
+    return 0;
 }
