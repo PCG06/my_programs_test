@@ -1,6 +1,7 @@
 // C program to find simple interest
 
 #include <stdio.h>
+
 int main()
 {
     int p,t,r,si;

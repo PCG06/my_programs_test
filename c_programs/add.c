@@ -2,6 +2,7 @@
 - Pre determined numbers */
 
 #include <stdio.h>
+
 int main()
 {
     int a = 25, b = 35, c;

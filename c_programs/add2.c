@@ -1,6 +1,7 @@
 // C program to add 2 numbers using scanf
 
 #include <stdio.h>
+
 int main()
 {
     int a,b,c;
