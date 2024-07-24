@@ -1,4 +1,5 @@
 .vscode/
 *.o
 *.exe
-c_programs/build
+c_programs/school_stuff/build
+c_programs/my_stuff/build
