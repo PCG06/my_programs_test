@@ -13,7 +13,7 @@ void main()
     printf("Enter the rate: ");
     scanf("%d", &r);
 
-    si = (p*t*r)/100;
+    si = (p * t * r) / 100;
 
     printf("\nSimple interest = %d\n", si);
 }

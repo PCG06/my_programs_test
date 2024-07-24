@@ -1,5 +1,4 @@
-/* C program to find area of a triangle 
-Formula: https://en.wikipedia.org/wiki/Area_of_a_triangle#Using_side_lengths_(Heron's_formula) */
+// C program to find area of a triangle
 
 #include <stdio.h>
 #include <math.h>
