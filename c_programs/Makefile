@@ -28,4 +28,7 @@ clean:
 	rm -rf $(BUILD_DIR)
 	@echo "Build folder has been cleaned and removed!"
 
+# Clean up generated files and rebuild all
+cleanbuild: clean all
+
 .PHONY: all clean
