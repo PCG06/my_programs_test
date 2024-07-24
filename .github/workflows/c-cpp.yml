@@ -19,9 +19,9 @@ jobs:
       run: sudo apt-get update && sudo apt-get install -y gcc make
 
     - name: Build school_stuff
-      working-directory: c_programs/school_stuff/src
+      working-directory: c_programs/school_stuff
       run: make
 
     - name: Build my_stuff
-      working-directory: my_stuff/src
+      working-directory: my_stuff
       run: make
