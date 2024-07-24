@@ -94,7 +94,7 @@ In case you need help setting up your environment.
 - [Compile C program with gcc compiler on Bash on Ubuntu on Windows 10 & 11](https://developerinsider.co/compile-c-program-with-gcc-compiler-on-bash-on-ubuntu-on-windows-10/)
 - [Turbo C++](https://developerinsider.co/download-turbo-c-for-windows-7-8-8-1-and-windows-10-32-64-bit-full-screen/)
 
-#Credits:
+# Credits:
 All people who helped in one way or the other.
 - anyone who wrote these programs (me, and everyone who contributed).
 - ChatGPT for writing the Makefile (yes I got desperate).
