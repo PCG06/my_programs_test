@@ -23,5 +23,5 @@ jobs:
       run: make
 
     - name: Build my_stuff
-      working-directory: my_stuff
+      working-directory: c_programs/my_stuff
       run: make
