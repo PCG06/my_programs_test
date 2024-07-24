@@ -23,5 +23,4 @@ void main()
 
     printf("\nThe reverse of %ld is %ld", num, rev);
     printf("\nThe sum of individual numbers is %ld\n", sum);
-
 }
