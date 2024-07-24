@@ -11,5 +11,5 @@ void main()
 
     cels = (fahr - 32) * 5 / 9;
 
-    printf("\nTemperature %.2f in Fahrenheit is %.2f in Celsius\n", fahr, cels);
+    printf("\nTemperature %.2f°F is %.2f°C\n", fahr, cels);
 }
