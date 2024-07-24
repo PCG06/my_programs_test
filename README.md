@@ -68,7 +68,7 @@ You need to include `conio.h`, and use the functions `clrscr()` before printing 
      ```
    - If you're outside the `c_programs` directory
      ```bash
-     ./c_programs/src/hello.o
+     ./c_programs/hello.o
      ```
 
 And that's it. Enjoy :)

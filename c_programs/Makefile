@@ -9,6 +9,7 @@ OBJECTS = $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(SOURCES))
 
 # Default target
 all: $(BUILD_DIR) $(PROGRAMS)
+	@echo "All source files are built!"
 
 # Rule to create the build directory if it doesn't exist
 $(BUILD_DIR):
@@ -25,5 +26,6 @@ $(BUILD_DIR)/%: $(BUILD_DIR)/%.o
 # Clean up generated files
 clean:
 	rm -rf $(BUILD_DIR)
+	@echo "Build folder has been cleaned and removed!"
 
 .PHONY: all clean
