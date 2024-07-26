@@ -10,7 +10,7 @@ void main()
     printf("Enter a number of series to be printed: ");
     scanf("%d", &n);
 
-    printf("Fibonacci series:\n");
+    printf("\nFibonacci series:\n");
     for (i = 1; i <= n; i++)
     {
         printf("%lu ", f1);

@@ -27,10 +27,10 @@ void main()
 
     if (primeNum)
     {
-        printf("%lu is a prime number.\n", num);
+        printf("\n%lu is a prime number.\n", num);
     }
     else
     {
-        printf("%lu is not a prime number.\n", num);
+        printf("\n%lu is not a prime number.\n", num);
     }
 }
