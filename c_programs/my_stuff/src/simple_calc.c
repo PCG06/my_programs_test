@@ -6,7 +6,7 @@ void main()
 {
     char operator;
     double a, b, c;
-    int intA, intB;
+    int intA, intB, intC;
 
     input:
     {   
@@ -59,8 +59,8 @@ void main()
             intA = (int) a;
             intB = (int) b;
 
-            c = intA % intB;
-            printf("Remainder of %d / %d = %.2lf", intA, intB, c);
+            intC = intA % intB;
+            printf("Remainder of %d %% %d = %d", intA, intB, intC);
         }
         break;
     }
