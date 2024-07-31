@@ -63,6 +63,10 @@ void main()
             printf("Remainder of %d %% %d = %d", intA, intB, intC);
         }
         break;
+        default:
+        {
+            printf("Invalid.");
+        }
     }
 
     printf("\n");
