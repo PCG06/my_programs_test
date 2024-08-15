@@ -1,4 +1,4 @@
-// C program to mimic a simple calculator with basic arithmetic functions
+// C program to mimic a simple calculator with basic arithmetic functions using switch statements
 
 #include <stdio.h>
 
