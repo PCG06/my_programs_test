@@ -26,7 +26,7 @@ Running make -j will speed up the process, based on the number of threads on you
 make -j${nproc}
 ```
 
-`make` will build all source files present in `c_programs/folder/src`. Where folder is either `school_stuff` or `my_stuff`.
+`make` will build all source files present in `/src`.
 
 To run any program, in this case let's assume it's hello.c
 
@@ -62,11 +62,6 @@ If you're compiling and running on Turbo C++, please don't forget to do the foll
 
 You need to include `conio.h`, and use the functions `clrscr()` before printing statements, and `getch()` at the bottom.
 
-
-- Enter the `c_programs` directory.
-  ```bash
-  cd c_programs/src/school_stuff
-  ```
 - Compiling.
 
   - Let's assume you're compiling hello.c,
@@ -81,10 +76,6 @@ You need to include `conio.h`, and use the functions `clrscr()` before printing 
    - Again, assuming you're running hello.c
      ```bash
      ./hello.o
-     ```
-   - If you're outside the `c_programs` directory
-     ```bash
-     ./c_programs/school_stuff/hello.o
      ```
 And that's it. Enjoy :)
 
