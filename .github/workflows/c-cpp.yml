@@ -15,10 +15,5 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Build school_stuff
-      working-directory: c_programs/school_stuff
-      run: make -j${nproc}
-
-    - name: Build my_stuff
-      working-directory: c_programs/my_stuff
+    - name: Build source files
       run: make -j${nproc}
