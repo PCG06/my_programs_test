@@ -2,22 +2,16 @@ name: C/C++ CI
 
 on:
   push:
-    branches: 
-      - "main"
-      - "my_stuff"
-  pull_request:
-    branches: 
-      - "main"
-      - "my_stuff"
+    branches:
+      - main
+      - my_stuff
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Build source files
-      run: make -j${nproc}
+      - name: Build
+        run: make -j$(nproc)
