@@ -4,28 +4,23 @@
 
 void main()
 {
-    unsigned long int num, i, primeNum = 1;
+    unsigned long int num, i, primeNum = 0;
 
     printf("Enter a number: ");
     scanf("%lu", &num);
 
-    if (num <= 1)
+    for (i = 2; i < num; i++)
+    // for (i = 2; i <= n/2; i++) also works
     {
-        primeNum = 0;
-    }
-    else
-    {
-        for (i = 2; i * i <= num; i++)
+        if (num % i == 0)
         {
-            if (num % i == 0)
-            {
-                primeNum = 0;
-                break;
-            }
+            // Not a prime number
+            primeNum = 1;
+            break;
         }
     }
 
-    if (primeNum)
+    if (primeNum == 0)
     {
         printf("\n%lu is a prime number.\n", num);
     }
