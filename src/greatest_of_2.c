@@ -1,4 +1,4 @@
-/* C program to find largest of 2 numbers
+/* C program to find greatest of 2 numbers
 - Using if condition */
 
 #include <stdio.h>

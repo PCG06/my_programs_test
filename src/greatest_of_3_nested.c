@@ -1,4 +1,4 @@
-/* C program to find largest of 3 numbers
+/* C program to find greatest of 3 numbers
 - Using nested if condition */
 
 #include <stdio.h>
