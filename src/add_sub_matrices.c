@@ -1,6 +1,6 @@
 // C program to perform addition and subtraction on 2 equal matrices
 
-#include <stdio.h> // 222354
+#include <stdio.h>
 #include <stdlib.h>
 
 void main()
