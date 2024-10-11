@@ -2,26 +2,28 @@
 
 #include <stdio.h>
 
-int factorialNum(int num);
+int factorial(int num);
 
 void main()
 {
-    int num, fact;
+    int n, num, i, fact;
+
+    printf("Enter the value for n: ");
+    scanf("%d", &n);
 
     printf("Enter the number: ");
-    scanf("%d", &num);
-
-    fact = factorialNum(num);
-
-    printf("The factorial of %d is %d\n", num, fact);
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &num);
+        fact = factorial(num);
+        printf("The factorial of %d is %d\n", num, fact);
+    }
 }
 
-int factorialNum(int num)
+int factorial(int num)
 {
-    int i, fact = 1;
-
-    for (i = 1; i <= num; i++)
-        fact *= i;
-    
-    return fact;
+    if (num > 1)
+        return (num * factorial(num - 1));
+    else
+        return 1;
 } 
