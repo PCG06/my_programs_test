@@ -6,7 +6,6 @@ void main()
 {
     int a[20], i, n, great, small, gpos = 1, spos = 1;
 
-
     printf("Enter the size of the array: ");
     scanf("%d", &n);
 
@@ -15,7 +14,7 @@ void main()
         scanf("%d", &a[i]);
 
     great = small = a[0];
-    for (i =0; i < n; i ++)
+    for (i = 1; i < n; i++)
     {
         if (a[i] > great)
         {
