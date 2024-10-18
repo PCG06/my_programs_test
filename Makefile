@@ -1,11 +1,18 @@
 # Directories for source files and build outputs
 SRC_DIR = src
 BUILD_DIR = build
+INCLUDE_DIR = include
+
+# Compiler and flags
+CC = gcc
+
+# Add include directory and other flags
+CFLAGS = -I$(INCLUDE_DIR) -Wall -Werror -Wno-main
 
 # Automatically find all .c files in the src directory
 SOURCES = $(wildcard $(SRC_DIR)/*.c)
-PROGRAMS = $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%,$(SOURCES))
 OBJECTS = $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(SOURCES))
+PROGRAMS = $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%,$(SOURCES))
 
 # Default target
 all: $(BUILD_DIR) $(PROGRAMS)
@@ -17,11 +24,11 @@ $(BUILD_DIR):
 
 # Rule for compiling .c files into .o files in the build directory
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
-	gcc -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # Rule for linking .o files into executables in the build directory
 $(BUILD_DIR)/%: $(BUILD_DIR)/%.o
-	gcc $^ -o $@ -lm
+	$(CC) $(CFLAGS) $^ -o $@ -lm
 
 # Clean up generated files
 clean:

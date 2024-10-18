@@ -7,8 +7,7 @@ Using built-in functions. */
 
 #include <stdio.h>
 #include <string.h>
-
-static inline char *strrev(char *str);
+#include "custom.h"
 
 void main()
 {
@@ -34,24 +33,4 @@ void main()
     strcpy(merge, str);
     strcat(merge, rev);
     printf("\nThe merge of strings '%s' and '%s' is '%s'\n", str, rev, merge);
-}
-
-// strrrev() doesn't exist anymore, so I resurrected it :)
-static inline char *strrev(char *str)
-{
-    char *start = str;
-    char *end = str + strlen(str) - 1;
-    char temp;
-
-    // Swap characters from start and end towards the middle
-    while (start < end)
-    {
-        temp = *start;
-        *start = *end;
-        *end = temp;
-        start++;
-        end--;
-    }
-
-    return str;
 }
