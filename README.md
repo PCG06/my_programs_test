@@ -89,5 +89,4 @@ In case you need help setting up your environment.
 All people who helped in one way or the other.
 - anyone who wrote these programs (me, and everyone who contributed).
 - ChatGPT for writing the Makefile (yes I got desperate).
-- my C lecturer.
 - [Vineet Choudhary](https://developerinsider.co/author/vineet/).
