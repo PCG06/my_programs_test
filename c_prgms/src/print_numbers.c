@@ -14,7 +14,7 @@ int main(void)
     printf("\n");
     for (int i = 1; i <= n; i++)
     {
-        printf("%lu ", i);
+        printf("%d ", i);
     }
     printf("\n");
 

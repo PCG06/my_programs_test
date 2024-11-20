@@ -3,7 +3,7 @@ name: Compile C code
 on:
   push:
     branches:
-      - my_stuff
+      - personal
 
 jobs:
   build:
