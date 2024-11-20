@@ -1,4 +1,4 @@
-name: Compile code
+name: Compile C code
 
 on:
   push:
