@@ -6,7 +6,7 @@
 double ScanExpression(const char *expr);
 double ProcessExpression(double a, double b, char operator);
 
-int main()
+int main(void)
 {
     char expression[250];
 

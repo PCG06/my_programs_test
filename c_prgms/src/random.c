@@ -4,14 +4,14 @@
 #include <stdlib.h>
 #include <time.h>
 
-int Random()
+int Random(void)
 {
     srand((unsigned int)time(NULL));
     // Generate a random number and mask it to fit within 16 bits
     return (int)(rand() & 0xFFFF);
 }
 
-void main()
+void main(void)
 {
     unsigned int num, random;
 

@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-void main()
+void main(void)
 {
     int year = 2000, isLeap = 0;
     printf("Enter a year: ");

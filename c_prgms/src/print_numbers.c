@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-void main()
+void main(void)
 {
     int n;
     unsigned long int i;
