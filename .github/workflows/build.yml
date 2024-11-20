@@ -3,8 +3,7 @@ name: Compile C code
 on:
   push:
     branches:
-      - main
-      - my_stuff
+      - sem_1
 
 jobs:
   build:
