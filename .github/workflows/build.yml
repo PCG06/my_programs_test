@@ -1,9 +1,8 @@
-name: C/C++ CI
+name: Compile code
 
 on:
   push:
     branches:
-      - main
       - my_stuff
 
 jobs:
@@ -11,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Building source files
+        working-directory: c_prgms
         run: make -j$(nproc)
