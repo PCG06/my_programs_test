@@ -2,8 +2,9 @@
 // Honestly no idea what I'm doing lol
 
 #include <stdio.h>
+#include <stdlib.h>
 
-void main(void)
+int main(void)
 {
     int n;
     unsigned long int i;
@@ -17,4 +18,6 @@ void main(void)
         printf("%lu ", i);
     }
     printf("\n");
+
+    return EXIT_SUCCESS;
 }

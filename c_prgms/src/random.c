@@ -11,7 +11,7 @@ int Random(void)
     return (int)(rand() & 0xFFFF);
 }
 
-void main(void)
+int main(void)
 {
     unsigned int num, random;
 
@@ -21,4 +21,6 @@ void main(void)
     random = (Random() % num + 1);
 
     printf("Random 16-bit number: %u\n", random);
+
+    return EXIT_SUCCESS;
 }

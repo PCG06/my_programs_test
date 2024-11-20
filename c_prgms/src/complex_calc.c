@@ -22,7 +22,7 @@ int main(void)
 
     printf("Result: %.2f\n", result);
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 double ScanExpression(const char *expr)

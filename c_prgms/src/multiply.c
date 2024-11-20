@@ -1,8 +1,9 @@
 // C program to multiply 2 numbers
 
 #include <stdio.h>
+#include <stdlib.h>
 
-void main(void)
+int main(void)
 {
     int a, b, c;
 
@@ -12,4 +13,6 @@ void main(void)
     c = a * b;
 
     printf("\nThe product of %d and %d is = %d\n", a, b, c);
+
+    return EXIT_SUCCESS;
 }
