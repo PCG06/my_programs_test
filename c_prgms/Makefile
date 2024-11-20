@@ -1,13 +1,12 @@
 # Directories for source files and build outputs
 SRC_DIR = src
 BUILD_DIR = build
-INCLUDE_DIR = include
 
 # Compiler and flags
 CC = gcc
 
 # Add include directory and other flags
-CFLAGS = -I$(INCLUDE_DIR) -Wall -Werror -Wno-main
+CFLAGS = -Wall -Werror -Wno-main
 
 # Automatically find all .c files in the src directory
 SOURCES = $(wildcard $(SRC_DIR)/*.c)
