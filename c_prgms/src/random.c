@@ -13,12 +13,12 @@ int Random(void)
 
 int main(void)
 {
-    unsigned int num, random;
-
+    unsigned int num = 0;
+    
     printf("Enter maximum limit: ");
     scanf("%u", &num);
 
-    random = (Random() % num + 1);
+    const int random = (Random() % num + 1);
 
     printf("Random 16-bit number: %u\n", random);
 

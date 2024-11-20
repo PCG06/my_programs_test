@@ -6,14 +6,13 @@
 
 int main(void)
 {
-    int n;
-    unsigned long int i;
-
+    int n = 0;
+    
     printf("Enter the number of numbers to be printed: ");
     scanf("%d", &n);
 
     printf("\n");
-    for (i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++)
     {
         printf("%lu ", i);
     }

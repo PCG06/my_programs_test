@@ -5,7 +5,9 @@
 
 int main(void)
 {
-    int year = 2000, isLeap = 0;
+    const int year = 2000;
+    int isLeap = 0;
+    
     printf("Enter a year: ");
     scanf("%d", &year);
 
