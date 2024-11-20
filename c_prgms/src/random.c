@@ -4,21 +4,23 @@
 #include <stdlib.h>
 #include <time.h>
 
-int Random()
+int Random(void)
 {
     srand((unsigned int)time(NULL));
     // Generate a random number and mask it to fit within 16 bits
     return (int)(rand() & 0xFFFF);
 }
 
-void main()
+int main(void)
 {
-    unsigned int num, random;
-
+    unsigned int num = 0;
+    
     printf("Enter maximum limit: ");
     scanf("%u", &num);
 
-    random = (Random() % num + 1);
+    const int random = (Random() % num + 1);
 
     printf("Random 16-bit number: %u\n", random);
+
+    return EXIT_SUCCESS;
 }

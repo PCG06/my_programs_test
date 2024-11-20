@@ -6,29 +6,32 @@
 double ScanExpression(const char *expr);
 double ProcessExpression(double a, double b, char operator);
 
-int main()
+int main(void)
 {
-    char expression[250];
+    char expression[250] = {'\0'};
 
     // Prompt the user for an expression
     printf("Enter an expression: ");
-    fgets(expression, sizeof(expression), stdin);
+    if (!fgets(expression, sizeof(expression), stdin)) {
+        fprintf(stderr, "error: fgets() failed!\n");
+        return EXIT_FAILURE;
+    }
 
     // Remove newline character if present
     expression[strcspn(expression, "\n")] = 0;
 
     // Evaluate the expression
-    double result = ScanExpression(expression);
+    const double result = ScanExpression(expression);
 
     printf("Result: %.2f\n", result);
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 double ScanExpression(const char *expr)
 {
-    double numbers[50]; // Array to store numbers
-    char operators[50]; // Array to store operators
+    double numbers[50] = {0}; // Array to store numbers
+    char operators[50] = {0}; // Array to store operators
     int num_index = 0, op_index = 0;
 
     // Temporary variable to store the current number
@@ -36,9 +39,9 @@ double ScanExpression(const char *expr)
     int has_num = 0;
     
     // Loop through the expression and parse numbers and operators
-    for (int i = 0; i < strlen(expr); i++)
+    for (size_t i = 0; i < strlen(expr); i++)
     {
-        char ch = expr[i];
+        const char ch = expr[i];
         
         if (isdigit(ch) || ch == '.')
         {

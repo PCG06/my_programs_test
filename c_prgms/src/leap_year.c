@@ -1,10 +1,13 @@
 // C program to check whether a year is a leap year or not
 
 #include <stdio.h>
+#include <stdlib.h>
 
-void main()
+int main(void)
 {
-    int year = 2000, isLeap = 0;
+    const int year = 2000;
+    int isLeap = 0;
+    
     printf("Enter a year: ");
     scanf("%d", &year);
 
@@ -15,4 +18,6 @@ void main()
         printf("It is a leap year\n");
     else
         printf("It is not a leap year\n");
+
+    return EXIT_SUCCESS;
 }
