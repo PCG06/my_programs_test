@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - personal
+  pull_request:
+    branches:
+      - personal
 
 jobs:
   build:
