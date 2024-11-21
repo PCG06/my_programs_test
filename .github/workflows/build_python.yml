@@ -10,19 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-
-      - name: Install dependencies
-        run: |
-          # If you have dependencies to install, use pip
-          # pip install -r requirements.txt
-          echo "Skipping dependencies installation"
 
       - name: Compile Python
         working-directory: python_prgms
