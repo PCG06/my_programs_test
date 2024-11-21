@@ -38,7 +38,7 @@ jobs:
                    \"fields\": [
                      {
                        \"name\": \"Commit:\",
-                       \"value\": \"[\`$COMMIT_HASH\`](<${{ github.event.head_commit.url }}>) ${{ github.event.head_commit.message }}\",
+                       \"value\": \"[\`$COMMIT_HASH\`](<${{ github.event.head_commit.url }}>)\",
                        \"inline\": false
                      },
                      {
