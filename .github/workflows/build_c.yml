@@ -12,6 +12,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Building source files
+      - name: Compile C
         working-directory: c_prgms
         run: make -j$(nproc)

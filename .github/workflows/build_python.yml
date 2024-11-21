@@ -24,10 +24,10 @@ jobs:
           # pip install -r requirements.txt
           echo "Skipping dependencies installation"
 
-      - name: Compile Python files using Make
+      - name: Compile Python
         working-directory: python_prgms
         run: make -j$(nproc)
 
       - name: List compiled files
-        run: |
-          ls -R src/__pycache__
+        working-directory: python_prgms
+        run: ls -R src/__pycache__
