@@ -23,22 +23,6 @@ jobs:
         working-directory: c_prgms
         run: make -j$(nproc)
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Compile Python
-        working-directory: python_prgms
-        run: make -j$(nproc)
-
-      - name: List compiled files
-        working-directory: python_prgms
-        run: ls -R src/__pycache__
-
       # Success notification step
       - name: Send success notification to Discord
         if: success()
