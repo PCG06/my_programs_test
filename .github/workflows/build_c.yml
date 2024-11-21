@@ -16,6 +16,83 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install curl
+        run: sudo apt-get install curl
+
       - name: Compile C
         working-directory: c_prgms
         run: make -j$(nproc)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compile Python
+        working-directory: python_prgms
+        run: make -j$(nproc)
+
+      - name: List compiled files
+        working-directory: python_prgms
+        run: ls -R src/__pycache__
+
+      # Success notification step
+      - name: Send success notification to Discord
+        if: success()
+        shell: bash 
+        run: |
+          COMMIT_HASH="${GITHUB_SHA:0:6}"
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d "{
+                 \"embeds\": [{
+                   \"title\": \"CI Job Succeeded\",
+                   \"description\": \"CI job succeeded on C.\",
+                   \"color\": 65280,
+                   \"fields\": [
+                     {
+                       \"name\": \"Commit:\",
+                       \"value\": \"[\`$COMMIT_HASH\`](<${{ github.event.head_commit.url }}>) ${{ github.event.head_commit.message }}\",
+                       \"inline\": false
+                     },
+                     {
+                       \"name\": \"Committed by:\",
+                       \"value\": \"[${{ github.actor }}](https://github.com/${{ github.actor }})\",
+                       \"inline\": false
+                     }
+                   ]
+                 }]
+               }" \
+               ${{ secrets.DISCORD_WEBHOOK_4 }}
+
+      # Failure notification step
+      - name: Send failure notification to Discord
+        if: failure()
+        shell: bash 
+        run: |
+          COMMIT_HASH="${GITHUB_SHA:0:6}"
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d "{
+                 \"embeds\": [{
+                   \"title\": \"CI Job Failed\",
+                   \"description\": \"CI job failed on C.\",
+                   \"color\": 16711680,
+                   \"fields\": [
+                     {
+                       \"name\": \"Commit:\",
+                       \"value\": \"[\`$COMMIT_HASH\`](<${{ github.event.head_commit.url }}>) ${{ github.event.head_commit.message }}\",
+                       \"inline\": false
+                     },
+                     {
+                       \"name\": \"Committed by:\",
+                       \"value\": \"[${{ github.actor }}](https://github.com/${{ github.actor }})\",
+                       \"inline\": false
+                     }
+                   ]
+                 }]
+               }" \
+               ${{ secrets.DISCORD_WEBHOOK_4 }}
