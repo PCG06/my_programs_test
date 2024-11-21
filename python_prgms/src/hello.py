@@ -1,3 +1,5 @@
+# Python script to print my basic info
+
 my_name = "PCG"
 my_age = 18
 my_hobbies = ["binging TV shows", "reading history", "programming", "playing shooter games"]
