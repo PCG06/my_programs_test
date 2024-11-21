@@ -33,8 +33,7 @@ jobs:
                -X POST \
                -d "{
                  \"embeds\": [{
-                   \"title\": \"CI Job Succeeded\",
-                   \"description\": \"CI job succeeded on C.\",
+                   \"title\": \"CI job succeeded on C\",
                    \"color\": 65280,
                    \"fields\": [
                      {
@@ -62,8 +61,7 @@ jobs:
                -X POST \
                -d "{
                  \"embeds\": [{
-                   \"title\": \"CI Job Failed\",
-                   \"description\": \"CI job failed on C.\",
+                   \"title\": \"CI job failed on C\",
                    \"color\": 16711680,
                    \"fields\": [
                      {

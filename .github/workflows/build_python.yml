@@ -37,8 +37,7 @@ jobs:
                -X POST \
                -d "{
                  \"embeds\": [{
-                   \"title\": \"CI Job Succeeded\",
-                   \"description\": \"CI job succeeded on Python.\",
+                   \"title\": \"CI job succeeded on Python\",
                    \"color\": 65280,
                    \"fields\": [
                      {
@@ -65,8 +64,7 @@ jobs:
                -X POST \
                -d "{
                  \"embeds\": [{
-                   \"title\": \"CI Job Failed\",
-                   \"description\": \"CI job failed on Python.\",
+                   \"title\": \"CI job failed on Python\",
                    \"color\": 16711680,
                    \"fields\": [
                      {
