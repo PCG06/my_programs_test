@@ -3,10 +3,10 @@ name: Compile Python code
 on:
   push:
     branches:
-      - personal
+      - pr/snakegame_sdl
   pull_request:
     branches:
-      - personal
+      - pr/snakegame_sdl
 
 jobs:
   build:
