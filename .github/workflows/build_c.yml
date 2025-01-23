@@ -19,6 +19,9 @@ jobs:
       - name: Install curl
         run: sudo apt-get install curl
 
+      - name: Install SDL2
+        run: sudo apt-get install libsdl2-dev
+
       - name: Compile C
         working-directory: c_prgms
         run: make -j$(nproc)

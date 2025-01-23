@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void main(void)
+int main(void)
 {
     if(printf("Hello world!\n")){}
 }

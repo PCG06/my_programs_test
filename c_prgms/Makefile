@@ -6,7 +6,8 @@ BUILD_DIR = build
 CC = gcc
 
 # Add include directory and other flags
-CFLAGS = -Wall -Werror -Wno-main
+CFLAGS = -Wall -Werror
+LDFLAGS = -lncurses
 
 # Automatically find all .c files in the src directory
 SOURCES = $(wildcard $(SRC_DIR)/*.c)
@@ -27,7 +28,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
 
 # Rule for linking .o files into executables in the build directory
 $(BUILD_DIR)/%: $(BUILD_DIR)/%.o
-	$(CC) $(CFLAGS) $^ -o $@ -lm
+	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS) -lm -lSDL2
 
 # Clean up generated files
 clean:
