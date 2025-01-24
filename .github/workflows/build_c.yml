@@ -3,7 +3,7 @@ name: Compile C code
 on:
   push:
     branches:
-      - pr/snakegame_sdl
+      - personal
   pull_request:
 
 jobs:
