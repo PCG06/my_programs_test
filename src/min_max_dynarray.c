@@ -1,4 +1,4 @@
-// Program to find the largest and smallest element in arr dynamic array
+// Program to find the largest and smallest element in a dynamic array
 
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,4 +1,4 @@
-// Program for binary search method
+// Program to perform binary search
 
 #include <stdio.h>
 
@@ -50,9 +50,9 @@ int binarySearch(int arr[], int n, int se)
             break;
         }
         else if (se < arr[mid]) // search left half
-            high = mid - 1;
+            high = --mid;
         else // search right half
-            low = mid + 1;
+            low = --mid;
     }
     return loc + 1;
 }

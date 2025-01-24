@@ -50,19 +50,19 @@ void main()
 }
 
 // Check if the stack is full
-int isFull()
+int isFull(void)
 {
     return top == MAX - 1;
 }
 
 // Check if the stack is empty
-int isEmpty()
+int isEmpty(void)
 {
     return top == -1;
 }
 
 // Push operation
-void push()
+void push(void)
 {
     int value;
 
@@ -78,7 +78,7 @@ void push()
 }
 
 // Pop operation
-void pop()
+void pop(void)
 {
     if (isEmpty())
         printf("Stack underflow! Cannot pop.\n");
@@ -87,7 +87,7 @@ void pop()
 }
 
 // Display stack contents
-void display()
+void display(void)
 {
     if (isEmpty())
         printf("Stack is empty.\n");

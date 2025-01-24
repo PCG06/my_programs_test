@@ -1,4 +1,4 @@
-// Program for linear search method
+// Program to perform linear search
 
 #include <stdio.h>
 
