@@ -52,7 +52,7 @@ int binarySearch(int arr[], int n, int se)
         else if (se < arr[mid]) // search left half
             high = --mid;
         else // search right half
-            low = --mid;
+            low = ++mid;
     }
     return loc + 1;
 }
