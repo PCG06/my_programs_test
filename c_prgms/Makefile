@@ -7,7 +7,7 @@ CC = gcc
 
 # Add include directory and other flags
 CFLAGS = -Wall -Werror
-LDFLAGS = -lncurses
+LDFLAGS = -lncurses -lSDL2_ttf
 
 # Automatically find all .c files in the src directory
 SOURCES = $(wildcard $(SRC_DIR)/*.c)
