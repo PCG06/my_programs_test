@@ -101,7 +101,7 @@ void display(void)
 {
     int i;
     if (isEmpty())
-        printf("Queue is empty.\n");
+        printf("Queue underflow!\n");
     else
     {
         printf("Queue contents: ");

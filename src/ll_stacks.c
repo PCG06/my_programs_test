@@ -1,107 +1,107 @@
-#include <stdio.h>   
-#include <stdlib.h>   
+#include <stdio.h>
+#include <stdlib.h>
 
-void push();   
-void pop();   
-void display();   
+void push();
+void pop();
+void display();
 
-struct node    
-{   
-    int val;   
-    struct node *next;   
-};   
+struct node
+{
+    int val;
+    struct node *next;
+};
 
-struct node *top = NULL;   
+struct node *top = NULL;
 
-int main()   
-{   
-    int choice;    
-
-    printf("\nChoose one from the below options...\n");   
-    printf("\n1. Push\n2. Pop\n3. Show\n4. Exit");   
+void main()
+{
+    int choice;
 
     do
-    {   
-        printf("\nEnter your choice: ");         
-        scanf("%d", &choice);   
+    {
+        printf("\n--- Stack Operations ---\n");
+        printf("1. Insert (Push)\n");
+        printf("2. Delete (Pop)\n");
+        printf("3. Display Stack\n");
+        printf("0. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
 
-        switch(choice)   
-        {   
-            case 1:    
-                push();   
-                break;   
-            case 2:   
-                pop();   
-                break;   
-            case 3:   
-                display();   
-                break;   
-            case 4:    
-                printf("Exiting....\n");   
-                break;    
-            default:   
-                printf("Please enter a valid choice\n");   
+        switch(choice)
+        {
+            case 1:
+                push();
+                break;
+            case 2:
+                pop();
+                break;
+            case 3:
+                display();
+                break;
+            case 0:
+                printf("Exiting...\n");
+                break;
+            default:
+                printf("Invalid choice! Please try again.\n"); 
         }   
-    } while (choice != 4);  
+    } while (choice != 0);  
+}
 
-    return 0;
-}   
+void push()
+{
+    int val;
+    struct node *ptr;
 
-void push()   
-{   
-    int val;   
-    struct node *ptr;    
-
-    ptr = (struct node *) malloc(sizeof(struct node));    
-    if (ptr == NULL)   
-    {   
-        printf("Not able to push the element\n");    
+    ptr = (struct node *) malloc(sizeof(struct node));
+    if (ptr == NULL)
+    {
+        printf("Stack overflow! Cannot push.\n");
         return;
-    }   
-    
-    printf("Enter the value: ");   
-    scanf("%d", &val);   
-        
-    ptr->val = val;   
-    ptr->next = top;   
-    top = ptr;   
+    }
 
-    printf("Item pushed\n");   
-}   
-   
-void pop()   
-{   
-    struct node *ptr;    
+    printf("Enter the value: ");
+    scanf("%d", &val);
+
+    ptr->val = val;
+    ptr->next = top;
+    top = ptr;
+
+    printf("Item pushed\n");
+}
+
+void pop()
+{
+    struct node *ptr;
 
     if (top == NULL)  
     {  
-        printf("Underflow\n");   
+        printf("Stack underflow! Cannot pop.\n");
         return;
-    }   
+    }
 
-    ptr = top;   
-    top = top->next;   
-    free(ptr);   
+    ptr = top;
+    top = top->next;
+    free(ptr);
 
-    printf("Item popped\n");   
-}   
+    printf("Item popped\n");
+}
 
-void display()   
-{   
-    struct node *ptr;    
+void display()
+{
+    struct node *ptr;
 
-    if (top == NULL)   
+    if (top == NULL)
     {  
-        printf("Stack is empty\n");   
+        printf("Stack Underflow!\n");
         return;
-    }   
-    
-    printf("Printing Stack elements:\n");   
-    ptr = top;   
-    while (ptr != NULL)   
-    {   
-        printf("%d ", ptr->val);   
-        ptr = ptr->next;   
-    }   
+    }
+
+    printf("Stack contents: ");
+    ptr = top;
+    while (ptr != NULL)
+    {
+        printf("%d ", ptr->val);
+        ptr = ptr->next;
+    }
     printf("\n");
 }

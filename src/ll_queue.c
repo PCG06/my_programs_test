@@ -17,15 +17,19 @@ void display(NODE first);
 void main()
 {
     NODE first = NULL;
-    int ch, item;
+    int choice, item;
 
     do
     {
-        printf("\n1. Insert at end\n2. Delete from beginning\n3. Display\n4. Exit");
-        printf("\nEnter choice: ");
-        scanf("%d", &ch);
+        printf("\n--- Queue Operations ---\n");
+        printf("1. Insert (Enqueue)\n");
+        printf("2. Delete (Dequeue)\n");
+        printf("3. Display Queue\n");
+        printf("0. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
 
-        switch (ch)
+        switch (choice)
         {
             case 1:
                 printf("\nEnter the item: ");
@@ -38,13 +42,13 @@ void main()
             case 3:
                 display(first);
                 break;
-            case 4:
-                exit(0);
+            case 0:
+                printf("Exiting...\n");
+                break;
             default:
-                printf("\nInvalid choice\n");
+                printf("Invalid choice! Please try again.\n");
         }
-    }
-    while (ch < 4);
+    } while (choice != 0);
 }
 
 NODE getnode()
@@ -52,7 +56,7 @@ NODE getnode()
     NODE x = (NODE) malloc(sizeof(struct node));
     if (x == NULL) 
     {
-        printf("\nNo free space");
+        printf("\nNo free space\n");
         exit(0);
     }
     x->link = NULL;
@@ -80,7 +84,7 @@ NODE del_beg(NODE first)
 {
     if (first == NULL)
     {
-        printf("\nEmpty list");
+        printf("Queue underflow! Cannot dequeue.\n");
         return NULL;
     }
 
@@ -96,15 +100,15 @@ void display(NODE first)
 {
     if (first == NULL)
     {
-        printf("\nNo elements to be displayed");
+        printf("Queue underflow!\n");
         return;
     }
 
-    printf("\nContents: ");
+    printf("Queue contents: ");
     NODE curr = first;
     while (curr != NULL)
     {
-        printf("%d\t", curr->info);
+        printf("%d ", curr->info);
         curr = curr->link;
     }
 }

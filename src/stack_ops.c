@@ -90,7 +90,7 @@ void pop(void)
 void display(void)
 {
     if (isEmpty())
-        printf("Stack is empty.\n");
+        printf("Stack underflow!\n");
     else
     {
         printf("Stack contents: ");
