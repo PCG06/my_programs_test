@@ -1,4 +1,4 @@
-// Program to perform queue operations using linked lists
+// Program to perform queue operations using linked lists and deleting an element at a given position
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,13 +13,13 @@ typedef struct node *NODE;
 
 NODE getnode();
 NODE ins_end(NODE first, int item);
-NODE del_beg(NODE first);
+NODE del_pos(NODE first, int pos);
 void display(NODE first);
 
 void main()
 {
     NODE first = NULL;
-    int choice, item;
+    int choice, item, pos;
 
     do
     {
@@ -39,7 +39,9 @@ void main()
                 first = ins_end(first, item);
                 break;
             case 2:
-                first = del_beg(first);
+                printf("\nEnter the position: ");
+                scanf("%d", &pos);
+                first = del_pos(first, pos);
                 break;
             case 3:
                 display(first);
@@ -82,18 +84,32 @@ NODE ins_end(NODE first, int item)
     return first;
 }
 
-NODE del_beg(NODE first)
+NODE del_pos(NODE first, int pos)
 {
+    NODE curr, prev;
+
     if (first == NULL)
     {
         printf("Queue underflow! Cannot dequeue.\n");
         return NULL;
     }
-
-    printf("\nDeleted element is %d", first->info);
-    NODE temp = first;
-    first = first->link;
-    free(temp);
+    else if (pos == 1)
+    {
+        printf("Deleted element is %d\n", first->info);
+        first = first->link;
+    }
+    else
+    {
+        curr = first;
+        for (int i = 1; i < pos; i ++)
+        {
+            prev = curr;
+            curr = curr->link;
+        }
+        prev->link = curr->link;
+        printf("Deleted element is %d\n", curr->info);
+        free(curr);
+    }
 
     return first;
 }

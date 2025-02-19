@@ -25,7 +25,7 @@ void main()
         printf("1. Insert (Push)\n");
         printf("2. Delete (Pop)\n");
         printf("3. Display Stack\n");
-        printf("0. Exit\n");
+        printf("0. Exit\n\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
