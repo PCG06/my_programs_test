@@ -73,7 +73,7 @@ NODE getnode()
     return x;
 }
 
-void preorder(NODE root)
+void preorder(NODE root) // Root node -> Left node -> Right node
 {
     if (root == NULL)
         return;
@@ -82,7 +82,7 @@ void preorder(NODE root)
     preorder(root->rlink);
 }
 
-void inorder(NODE root)
+void inorder(NODE root) // Left node -> Root node -> Right node
 {
     if (root == NULL)
         return;
@@ -91,7 +91,7 @@ void inorder(NODE root)
     inorder(root->rlink);
 }
 
-void postorder(NODE root)
+void postorder(NODE root) // Left node -> Right node -> Root node
 {
     if (root == NULL)
         return;

@@ -1,4 +1,4 @@
-// Program to perform queue operations using linked lists
+// Program to perform queue operations using linked list
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,7 +18,7 @@ void display(NODE first);
 
 void main()
 {
-    NODE first = NULL;
+    NODE first = NULL; // Initialize first pointer
     int choice, item;
 
     do
@@ -55,62 +55,65 @@ void main()
 
 NODE getnode()
 {
-    NODE x = (NODE) malloc(sizeof(struct node));
+    NODE x = (NODE) malloc(sizeof(struct node)); // Allocate memory for a new node
     if (x == NULL) 
     {
         printf("\nNo free space\n");
         exit(0);
     }
-    x->link = NULL;
+    x->link = NULL; // Initialize link to NULL
     return x;
 }
 
 NODE ins_end(NODE first, int item)
 {
-    NODE temp = getnode();
-    temp->info = item;
-    temp->link = NULL;
+    NODE temp = getnode(); // Create new node
+    temp->info = item; // Assign value to new node
+    temp->link = NULL; // Last node points to NULL
+    NODE curr;
 
     if (first == NULL)
-        return temp;
-
-    NODE curr = first;
-    while (curr->link != NULL)
-        curr = curr->link;
-    
-    curr->link = temp;
+        first = temp; // If list is empty, new node becomes the first node
+    else
+    {
+        curr = first; // Traverse to the end of the list
+        while (curr->link != NULL)
+            curr = curr->link;
+        
+        curr->link = temp; // Link the new node at the end
+    }
     return first;
 }
 
 NODE del_beg(NODE first)
 {
+    NODE temp;
     if (first == NULL)
-    {
         printf("Queue underflow! Cannot dequeue.\n");
-        return NULL;
+    else
+    {
+        printf("\nDeleted element is %d", first->info); // Display deleted element
+        temp = first; // Store current first node to free later
+        first = first->link; // Move first pointer to the next node
+        free(temp); // Free memory of deleted node
     }
-
-    printf("\nDeleted element is %d", first->info);
-    NODE temp = first;
-    first = first->link;
-    free(temp);
-
     return first;
 }
 
 void display(NODE first)
 {
+    NODE curr;
     if (first == NULL)
-    {
         printf("Queue underflow!\n");
-        return;
-    }
-
-    printf("Queue contents: ");
-    NODE curr = first;
-    while (curr != NULL)
+    else
     {
-        printf("%d ", curr->info);
-        curr = curr->link;
+        printf("Queue contents:\n");
+        curr = first; // Traverse from first to end
+        while (curr != NULL)
+        {
+            printf("%d ", curr->info);
+            curr = curr->link; // Move to the next node
+        }
     }
+    printf("\n");
 }

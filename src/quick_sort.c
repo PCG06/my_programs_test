@@ -1,44 +1,8 @@
-#include<stdio.h> 
+// Program to perform quick sort (ascending order)
 
-void quick_sort(int arr[],int l,int h) 
-{
-    int i, j, t, key, flag = 0;
+#include <stdio.h>
 
-    if (l < h) 
-    { 
-        i = l; 
-        j = h + 1; 
-        key = arr[l]; 
-        do 
-        { 
-            do 
-            { 
-                i++; 
-            } while (arr[i] < key); 
-            do 
-            { 
-                j--; 
-            } while (arr[j] > key); 
-
-            if (i < j) 
-            { 
-                t = arr[i]; 
-                arr[i] = arr[j]; 
-                arr[j] = t; 
-            } 
-            else 
-            { 
-                flag = 1; 
-                t = arr[j]; 
-                arr[j] = arr[l]; 
-                arr[l] = t; 
-            } 
-        } while (flag == 0); 
-
-    quick_sort(arr, l, j-1); 
-    quick_sort(arr, j+1, h); 
-    } 
-} 
+void quick_sort(int arr[], int l, int h);
 
 void main()
 {
@@ -64,4 +28,52 @@ void main()
     for (i = 0; i < n; i++)
         printf("%d ", arr[i]);
     printf("\n");
+}
+
+// Quick sort function
+void quick_sort(int arr[], int l, int h)
+{
+    int i, j, t, key, flag = 0;
+
+    if (l < h)
+    {
+        i = l;
+        j = h + 1;
+        key = arr[l]; // Pivot element
+
+        do
+        {
+            // Move i to the right until an element >= key is found
+            do
+            {
+                i++;
+            } while (arr[i] < key);
+
+            // Move j to the left until an element <= key is found
+            do
+            {
+                j--;
+            } while (arr[j] > key);
+
+            // Swap elements if i and j haven't crossed
+            if (i < j)
+            {
+                t = arr[i];
+                arr[i] = arr[j];
+                arr[j] = t;
+            }
+            // Swap pivot with the correct position element
+            else
+            {
+                flag = 1;
+                t = arr[j];
+                arr[j] = arr[l];
+                arr[l] = t;
+            }
+        } while (flag == 0);
+
+        // Recursively sort the left and right partitions
+        quick_sort(arr, l, j - 1);
+        quick_sort(arr, j + 1, h);
+    }
 }

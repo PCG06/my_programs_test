@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-#define MAX 100
+#define MAX 10
 
 // Global variables for stack
 int stack[MAX];

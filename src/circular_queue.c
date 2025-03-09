@@ -1,12 +1,12 @@
-// Program to perform queue operations using arrays
+// Program to perform operations on a circular queue using arrays
 
 #include <stdio.h>
 
 #define MAX 10
 
-// Global variables for queue
+// Global variables for circular queue
 int queue[MAX];
-int front = -1, rear = -1;
+int front = -1, rear = -1, count = 0, n = 5;
 
 // Function declarations
 int isFull(void);
@@ -21,7 +21,7 @@ void main()
 
     do
     {
-        printf("\n--- Queue Operations ---\n");
+        printf("\n--- Circular Queue Operations ---\n");
         printf("1. Insert (Enqueue)\n");
         printf("2. Delete (Dequeue)\n");
         printf("3. Display Queue\n");
@@ -52,31 +52,32 @@ void main()
 // Check if the queue is full
 int isFull(void)
 {
-    return rear == MAX - 1;
+    return (count == n);
 }
 
 // Check if the queue is empty
 int isEmpty(void)
 {
-    return front == -1 || front > rear;
+    return (count == 0);
 }
 
 // Enqueue operation
 void enqueue(void)
 {
     int value;
-
     if (isFull())
         printf("Queue overflow! Cannot enqueue.\n");
     else
     {
         printf("Enter value to enqueue: ");
         scanf("%d", &value);
+        
         if (front == -1)
-        {
             front = 0;
-        }
-        queue[++rear] = value;
+        
+        rear = (rear + 1) % n;
+        queue[rear] = value;
+        count++;
         printf("Enqueued %d into the queue.\n", value);
     }
 }
@@ -84,29 +85,36 @@ void enqueue(void)
 // Dequeue operation
 void dequeue(void)
 {
+    int value;
     if (isEmpty())
         printf("Queue underflow! Cannot dequeue.\n");
     else
     {
-        printf("Dequeued value: %d\n", queue[front++]);
-        if (front > rear)
-        {
-            front = rear = -1;  // Reset the queue when it's empty
-        }
+        value = queue[front];
+        printf("Dequeued value: %d\n", value);
+        count--;
+        if (isEmpty())
+            front = rear = -1;  // Reset the queue when empty
+        else
+            front = (front + 1) % MAX;
     }
 }
 
 // Display queue contents
 void display(void)
 {
-    int i;
+    int i, f1 = front;
     if (isEmpty())
-        printf("Queue underflow!\n");
+        printf("Queue is empty!\n");
     else
     {
-        printf("Queue contents: ");
-        for (i = front; i <= rear; i++)
-            printf("%d ", queue[i]);
+        printf("Queue contents:\n");
+        for (i = 0; i < count; i++)
+        {
+            printf("%d ", queue[f1]);
+            printf("Address: %p\n", &queue[f1]);
+            f1 = (f1 + 1) % n;
+        }
         printf("\n");
     }
 }

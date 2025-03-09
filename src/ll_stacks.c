@@ -1,4 +1,4 @@
-// Program to perform stack operations using linked lists
+// Program to perform stack operations using linked list
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,7 +13,7 @@ struct node
     struct node *next;
 };
 
-struct node *top = NULL;
+struct node *top = NULL; // Initialize top pointer
 
 void main()
 {
@@ -54,7 +54,7 @@ void push()
     int val;
     struct node *ptr;
 
-    ptr = (struct node *) malloc(sizeof(struct node));
+    ptr = (struct node *) malloc(sizeof(struct node)); // Allocate memory for new node
     if (ptr == NULL)
     {
         printf("Stack overflow! Cannot push.\n");
@@ -65,8 +65,8 @@ void push()
     scanf("%d", &val);
 
     ptr->val = val;
-    ptr->next = top;
-    top = ptr;
+    ptr->next = top; // Point to top as next node
+    top = ptr; // Update top to point to the new node
 
     printf("Item pushed\n");
 }
@@ -81,9 +81,9 @@ void pop()
         return;
     }
 
-    ptr = top;
-    top = top->next;
-    free(ptr);
+    ptr = top; // Remove top element
+    top = top->next; // Top moves to the next node
+    free(ptr); // Free memory of the removed node
 
     printf("Item popped\n");
 }
@@ -99,11 +99,11 @@ void display()
     }
 
     printf("Stack contents: ");
-    ptr = top;
+    ptr = top; // Start from top and traverse till end
     while (ptr != NULL)
     {
         printf("%d ", ptr->val);
-        ptr = ptr->next;
+        ptr = ptr->next; // Keep traversing
     }
     printf("\n");
 }

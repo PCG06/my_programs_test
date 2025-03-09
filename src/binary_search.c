@@ -1,4 +1,4 @@
-// Program to perform binary search
+// Program to perform binary search (ascending order)
 
 #include <stdio.h>
 
