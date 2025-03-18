@@ -63,7 +63,6 @@ NODE getnode()
         printf("\nNo free space\n");
         exit(0);
     }
-    x->link = NULL; // Initialize link to NULL
     return x;
 }
 

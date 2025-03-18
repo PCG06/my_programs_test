@@ -37,12 +37,8 @@ void insertionSort(int arr[], int n)
     for (i = 1; i < n; i++)  // Start from second element
     {
         key = arr[i];
-        j = i - 1;
-        while (j >= 0 && arr[j] > key)  // Shift elements that are greater than key
-        {
+        for (j = i - 1; j >= 0 && arr[j] > key; j--) // Shift elements that are greater than key
             arr[j + 1] = arr[j];
-            j--;
-        }
         arr[j + 1] = key;  // Place key in the correct position
     }
 }
