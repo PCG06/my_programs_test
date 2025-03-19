@@ -37,7 +37,7 @@ void main()
         switch (choice)
         {
             case 1:
-                printf("\nEnter the item: ");
+                printf("\nEnter the value: ");
                 scanf("%d", &item);
                 root = insert(root, item);
                 break;

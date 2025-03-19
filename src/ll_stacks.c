@@ -9,8 +9,8 @@ void display();
 
 struct node
 {
-    int val;
-    struct node *next;
+    int info;
+    struct node *link;
 };
 
 struct node *top = NULL; // Initialize top pointer
@@ -51,7 +51,7 @@ void main()
 
 void push()
 {
-    int val;
+    int info;
     struct node *ptr;
 
     ptr = (struct node *) malloc(sizeof(struct node)); // Allocate memory for new node
@@ -62,10 +62,10 @@ void push()
     }
 
     printf("Enter the value: ");
-    scanf("%d", &val);
+    scanf("%d", &info);
 
-    ptr->val = val;
-    ptr->next = top; // Point to top as next node
+    ptr->info = info;
+    ptr->link = top; // Point to top as link node
     top = ptr; // Update top to point to the new node
 
     printf("Item pushed\n");
@@ -82,7 +82,7 @@ void pop()
     }
 
     ptr = top; // Remove top element
-    top = top->next; // Top moves to the next node
+    top = top->link; // Top moves to the link node
     free(ptr); // Free memory of the removed node
 
     printf("Item popped\n");
@@ -102,8 +102,8 @@ void display()
     ptr = top; // Start from top and traverse till end
     while (ptr != NULL)
     {
-        printf("%d ", ptr->val);
-        ptr = ptr->next; // Keep traversing
+        printf("%d ", ptr->info);
+        ptr = ptr->link; // Keep traversing
     }
     printf("\n");
 }
