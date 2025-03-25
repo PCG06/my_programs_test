@@ -28,3 +28,5 @@ XYZ: begin
 end $$
 
 delimiter ;
+
+call proc_bank_trans(101, 1000, @trans_status);
