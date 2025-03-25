@@ -1,3 +1,5 @@
+-- Ex 14
+
 delimiter $$
 
 create procedure proc_rating()

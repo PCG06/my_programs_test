@@ -1,3 +1,5 @@
+-- Ex 12
+
 delimiter $$
 
 create procedure p_salary(in p_eno int, out p_inc double)

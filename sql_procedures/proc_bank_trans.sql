@@ -1,3 +1,5 @@
+-- Ex 15
+
 delimiter $$
 
 create procedure proc_bank_trans(in account_no int, in amt double(18,2), out trans_status varchar(50))
