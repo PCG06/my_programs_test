@@ -14,13 +14,15 @@ void main()
     
     // Input
     printf("Enter the postfix expression: ");
-    scanf("%s", postfix);
+    scanf("%[^\n]s", postfix);
 
     // Process
     for (i = 0; i < strlen(postfix); i++)
     {
         sym = postfix[i];
-        if (isdigit(sym))
+        if (isspace(sym))
+            continue;
+        else if (isdigit(sym))
             stack[++top] = sym - '0'; // Since its a symbol, we need to minus by '0' to get the real number
         else
         {

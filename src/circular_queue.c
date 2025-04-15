@@ -2,11 +2,11 @@
 
 #include <stdio.h>
 
-#define MAX 10
+#define MAX 5
 
 // Global variables for circular queue
 int queue[MAX];
-int front = -1, rear = -1, count = 0, n = 5;
+int front = 0, rear = -1, count = 0, n = 5;
 
 // Function declarations
 int isFull(void);
@@ -72,9 +72,6 @@ void enqueue(void)
         printf("Enter value to enqueue: ");
         scanf("%d", &value);
         
-        if (front == -1)
-            front = 0;
-        
         rear = (rear + 1) % n;
         queue[rear] = value;
         count++;
@@ -94,9 +91,9 @@ void dequeue(void)
         printf("Dequeued value: %d\n", value);
         count--;
         if (isEmpty())
-            front = rear = -1;  // Reset the queue when empty
+            front = 0, rear = -1;  // Reset the queue when empty
         else
-            front = (front + 1) % MAX;
+            front = (front + 1) % n;
     }
 }
 
@@ -112,7 +109,6 @@ void display(void)
         for (i = 0; i < count; i++)
         {
             printf("%d ", queue[f1]);
-            printf("Address: %p\n", &queue[f1]);
             f1 = (f1 + 1) % n;
         }
         printf("\n");

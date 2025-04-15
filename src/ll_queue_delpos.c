@@ -94,8 +94,10 @@ NODE del_pos(NODE first, int pos)
         printf("Queue underflow! Cannot dequeue.\n");
     else if (pos == 1)
     {
+        curr = first;
         printf("Deleted element is %d\n", first->info); // Display deleted element
         first = first->link; // Move first to the next node
+        free(curr); // Free memory of deleted node
     }
     else
     {
