@@ -4,7 +4,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
-int sum(int count, ...)
+int VarSum(int count, ...)
 {
     va_list args;
     va_start(args, count); // Initialize the argument list
@@ -19,8 +19,8 @@ int sum(int count, ...)
 
 int main()
 {
-    printf("Sum: %d\n", sum(3, 10, 20, 30));
-    printf("Sum: %d\n", sum(5, 1, 2, 3, 4, 5));
+    printf("Sum: %d\n", VarSum(3, 10, 20, 30));
+    printf("Sum: %d\n", VarSum(5, 1, 2, 3, 4, 5));
 
     return EXIT_SUCCESS;
 }
