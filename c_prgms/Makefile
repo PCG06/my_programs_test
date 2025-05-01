@@ -6,7 +6,7 @@ BUILD_DIR = build
 CC = gcc
 
 # Add include directory and other flags
-CFLAGS = -Wall -Werror -Wno-main
+CFLAGS = -Wall -Werror
 
 # Automatically find all .c files in the src directory
 SOURCES = $(wildcard $(SRC_DIR)/*.c)
