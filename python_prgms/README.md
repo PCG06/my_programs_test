@@ -7,7 +7,7 @@
 #### 1. Install Python on Windows
 
 1. **Download Python Installer**:
-   - Visit the official Python website: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+   - Visit the official Python website: [python.org/downloads](https://www.python.org/downloads/)
    - Download the latest stable version for Windows
 
 2. **Run the Installer**:
