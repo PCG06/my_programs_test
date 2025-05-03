@@ -50,32 +50,6 @@
 
 ---
 
-### For macOS
-
-#### 1. Install Python on macOS
-
-1. **Install Homebrew** (recommended):
-   ```bash
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   ```
-
-2. **Install Python**:
-   ```bash
-   brew install python
-   ```
-
-3. **Verify Installation**:
-   - Check Python version:
-     ```bash
-     python3 --version
-     ```
-   - Check pip version:
-     ```bash
-     pip3 --version
-     ```
-
----
-
 # How to Work With Python Programs
 
 This project includes a Makefile to help manage Python bytecode compilation and project cleanup.
