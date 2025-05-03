@@ -1,70 +1,99 @@
-This is my personal stuff, compiled with gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0.
+# C Development Environment Setup
 
-# Compiling and running
-Steps to compile a C program.
+## How to Install C Compiler (GCC)
 
-In case you need help setting up, click [here](https://github.com/PCG06/my_programs/?tab=readme-ov-file#help-center).
+### For MSYS2 (Windows)
 
-## All programs
+#### 1. Install MSYS2
+1. Download from [msys2.org](https://www.msys2.org/)
+2. Run installer with default options
+3. Update core packages:
+   ```bash
+   pacman -Syu
+   ```
 
-Just `make`, bro. :)
+#### 2. Install GCC
 ```bash
-make
+pacman -S mingw-w64-x86_64-gcc
+```
+(For 32-bit: `mingw-w64-i686-gcc`)
+
+#### 3. Verify Installation
+```bash
+gcc --version
 ```
 
-### To compile a little faster
+---
 
-The command `nproc` tells you how many thread you have on your computer.
+### For WSL (Windows Subsystem for Linux)
+
+#### 1. Install WSL
+1. **Enable WSL**:
+   ```powershell
+   wsl --install
+   ```
+2. Restart if prompted
+3. (Optional) Install specific distro:
+   ```powershell
+   wsl --install -d <DistroName>
+   ```
+
+#### 2. Install Ubuntu
+1. From Microsoft Store, install **Ubuntu** (20.04/22.04 LTS)
+2. Launch and complete setup (username/password)
+
+#### 3. Install Build Tools
 ```bash
-nproc
+sudo apt update && sudo apt install build-essential
 ```
 
-Running make -j will speed up the process, based on the number of threads on your computer.
+#### 4. Verify Installation
 ```bash
-make -j${nproc}
+gcc --version
 ```
 
-`make` will build all source files present in `/src`.
+---
 
-To run any program, in this case let's assume it's hello.c
+# How to Work With C Programs
 
+This project includes a Makefile to automate compilation and project management.
+
+## Steps to Compile Programs
+1. **Navigate to project directory**
+2. **Run make**:
+   ```bash
+   make
+   ```
+   - Creates `build/` directory
+   - Compiles all `.c` files
+   - Links object files
+   - Prints: "All source files are built!"
+
+## Steps to Run Programs
 ```bash
-./build/hello
+./build/program_name
 ```
 
-In case you want to erase all build artifacts,
+## Clean the Project
+1. **Clean build files**:
+   ```bash
+   make clean
+   ```
+   - Removes `build/` directory
+   - Prints: "Build folder has been cleaned and removed!"
 
-```bash
-make clean
-```
+2. **Full rebuild**:
+   ```bash
+   make cleanbuild
+   ```
 
-`make clean` will erase all build artifacts, allowing you to `make` again.
+## Summary of Commands
 
-## Individual program
+| Command          | Action                                  |
+|------------------|----------------------------------------|
+| `make`           | Compiles all C source files            |
+| `make clean`     | Deletes build directory                |
+| `make cleanbuild`| Full clean + rebuild                   |
+| `./build/program`| Run compiled executable                |
 
-- Compiling.
-
-  - Let's assume you're compiling hello.c,
-  ```bash
-  gcc hello.c -o hello.o
-  ```
-  - In other places, replace `hello.c` and `hello.o` with the appropriate file name.
-  - By default, running this command won't create the output file in `build` dir, it'll be in the `src` dir, unless you `make` or use a more complex command.
-
-- Running.
-
-   - Again, assuming you're running hello.c
-     ```bash
-     ./hello.o
-     ```
-And that's it. Enjoy :)
-
-# Help Center:
-In case you need help setting up your environment.
-- [Stepwise Guide to Enable Windows Subsystem for Linux (WSL)](https://developerinsider.co/stepwise-guide-to-enable-windows-10-subsystem-for-linux/)
-- [Compile C program with gcc compiler on Bash on Ubuntu on Windows 10 & 11](https://developerinsider.co/compile-c-program-with-gcc-compiler-on-bash-on-ubuntu-on-windows-10/)
-
-# Credits:
-All people who helped in one way or the other.
-- ChatGPT for writing the Makefile (yes I got desperate).
-- [Vineet Choudhary](https://developerinsider.co/author/vineet/).
+---
