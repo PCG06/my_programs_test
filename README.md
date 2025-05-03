@@ -9,6 +9,6 @@ Archive of my school stuff.
 
 ## 🌿 Semester Branches
 - **Semester 1** - Core C programming  
-  → [`sem_1` branch](tree/sem_1)
+  → [`sem_1`](./tree/sem_1)
 - **Semester 2** - Data Structures in C  
-  → [`sem_2` branch](tree/sem_2)
+  → [`sem_2`](./tree/sem_2)

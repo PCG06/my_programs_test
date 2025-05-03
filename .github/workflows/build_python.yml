@@ -3,7 +3,7 @@ name: Compile Python code
 on:
   push:
     branches:
-      - personal
+      - master
   pull_request:
 
 jobs:
