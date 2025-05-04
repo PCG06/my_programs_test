@@ -17,7 +17,7 @@ def binary_search(arr, target):
     return -1
 
 def main():
-    arr = sorted([int(i) for i in input("Enter numbers: ").split()]) # Sorts the input array
+    arr = sorted(map(int, input("Enter numbers: ").split()))  # Sorts the input array
     target = int(input("Enter number to search: "))
 
     # Print array elements
@@ -27,9 +27,9 @@ def main():
     result = binary_search(arr, target)
 
     if result != -1:
-        print(f"Found at position {result}")
+        print(f"{target} found at position {result}")
     else:
-        print("Not found")
+        print("{target} not found")
 
 if __name__ == "__main__":
     main()
