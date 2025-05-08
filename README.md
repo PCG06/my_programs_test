@@ -1,7 +1,6 @@
-# My Programming Archive
+# My Programs
 
-This repository contains my **C** and **Python** code.  
-Archive of my school stuff.
+This repository contains an archive of my **C** and **Python** code.
 
 ---
 

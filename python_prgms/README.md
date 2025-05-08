@@ -1,105 +1,139 @@
 # Python Development Environment Setup
 
+## Table of Contents
+
+1. [How to Install Python](#how-to-install-python)
+
+   * [For Windows](#for-windows)
+   * [For Linux (and WSL)](#for-linux-and-wsl)
+   * [For macOS](#for-macos)
+
+2. [How to Work With Python Programs](#how-to-work-with-python-programs)
+
+   * [Steps to Compile Python Files](#steps-to-compile-python-files)
+   * [Steps to Run Python Programs](#steps-to-run-python-programs)
+   * [Clean the Project](#clean-the-project)
+   * [Summary of Commands](#summary-of-commands)
+
+---
+
 ## How to Install Python
 
 ### For Windows
 
-#### 1. Install Python on Windows
-
 1. **Download Python Installer**:
-   - Visit the official Python website: [python.org/downloads](https://www.python.org/downloads/)
-   - Download the latest stable version for Windows
+
+   * Go to [python.org/downloads](https://www.python.org/downloads/)
+   * Download the latest stable version for Windows
 
 2. **Run the Installer**:
-   - Double-click the downloaded executable
-   - **Important**: Check the box that says **"Add Python to PATH"**
-   - Click "Install Now"
+
+   * Double-click the downloaded `.exe`
+   * **Important**: Check **"Add Python to PATH"**
+   * Click **Install Now**
 
 3. **Verify Installation**:
-   - Open Command Prompt and run:
-     ```cmd
-     python --version
-     ```
-   - You should see the installed Python version
+
+   ```cmd
+   python --version
+   ```
 
 ---
 
-### For WSL (Windows Subsystem for Linux)
+### For Linux (and WSL)
 
-#### 1. Install Python on WSL
+Check out WSL installation [here](../INSTALL_WSL.md).
 
-1. **Update Package List**:
-   ```bash
-   sudo apt update
-   ```
+#### 1. Install Python:
+```bash
+sudo apt update
+sudo apt install python3 python3-pip
+```
 
-2. **Install Python**:
-   ```bash
-   sudo apt install python3 python3-pip
-   ```
-
-3. **Verify Installation**:
-   - Check Python version:
-     ```bash
-     python3 --version
-     ```
-   - Check pip version:
-     ```bash
-     pip3 --version
-     ```
+#### 2. Verify Installation:
+```bash
+python3 --version
+pip3 --version
+```
 
 ---
 
-# How to Work With Python Programs
+### For macOS
 
-This project includes a Makefile to help manage Python bytecode compilation and project cleanup.
+#### 1. Choose between default interpreter
 
-## Steps to Compile Python Files
+Option A — **Use system Python** (already installed on newer macOS versions):
+```bash
+python3 --version
+```
+
+Option B — **Install via Homebrew** (recommended):
+```bash
+brew install python
+```
+
+#### 2. Verify Installation:
+```bash
+python3 --version
+pip3 --version
+```
+
+---
+
+## How to Work With Python Programs
+
+This project includes a Makefile to help manage Python bytecode compilation and cleanup.
+
+### Steps to Compile Python Files
 
 1. **Navigate to Project Directory**:
-   - Open a terminal in the directory containing the Makefile
+   ```bash
+   cd python_prgms
+   ```
 
 2. **Run the Make Command**:
    ```bash
    make
    ```
-   - This will:
-     - Compile all `.py` files in `src/` to bytecode (`.pyc`)
-     - Store compiled files in `src/__pycache__/`
-     - Print: "All Python scripts are compiled!"
 
-## Steps to Run Python Programs
+   * Compiles `.py` files in `src/` to `.pyc`
+   * Stores bytecode in `src/__pycache__/`
+   * Prints: "All Python scripts are compiled!"
 
-1. **Run Directly** (no compilation needed):
+### Steps to Run Python Programs
+
+1. **Run Directly**:
    ```bash
-   python3 src/your_script.py
+   python3 <program>
    ```
 
 2. **Run After Compilation**:
-   - Bytecode files are used automatically by Python interpreter
+   * Python uses `.pyc` files automatically when available
 
-## Clean the Project
+### Clean the Project
 
 1. **Clean Bytecode Files**:
    ```bash
    make clean
    ```
-   - Removes the `src/__pycache__/` directory
-   - Prints: "Pycache has been cleaned!"
+
+   * Removes `src/__pycache__/`
+   * Prints: "Pycache has been cleaned!"
 
 2. **Clean and Recompile**:
    ```bash
    make cleanbuild
    ```
-   - Runs `make clean` followed by `make`
 
-## **Summary of Commands**
+   * Runs `make clean` and then `make`
 
-| Command          | Action                                  |
-|------------------|----------------------------------------|
-| `make`           | Compiles all Python files to bytecode  |
-| `make clean`     | Deletes all bytecode cache files       |
-| `make cleanbuild`| Cleans and recompiles all files        |
-| `python3 src/file.py` | Runs a Python script directly        |
+### Summary of Commands
+
+| Command              | Action                                |
+| ---------------------| ------------------------------------- |
+| `make`               | Compiles all Python files to bytecode |
+| `make clean`         | Deletes bytecode cache files          |
+| `make cleanbuild`    | Cleans and recompiles all files       |
+| `python3 <program>`  | Runs a Python script directly         |
 
 ---
