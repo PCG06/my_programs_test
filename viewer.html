@@ -34,19 +34,35 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 10px;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
         h1 {
             color: #2c3e50;
             margin: 0;
             font-size: 1.5rem;
         }
-        .back-btn {
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        .action-btn {
             background: #2c3e50;
             color: white;
-            padding: 8px 16px;
+            padding: 6px 12px;
             border-radius: 4px;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .action-btn:hover {
+            background: #34495e;
         }
         pre[class*="language-"] {
             border-radius: 8px;
@@ -62,11 +78,16 @@
         }
     </style>
 </head>
-<!-- Body -->
 <body>
     <header>
-        <h1 id="filename">Code Viewer</h1>
-        <a href="index.html" class="back-btn">← Back to Programs</a>
+        <div class="header-left">
+            <a href="index.html" class="back-btn">← Back</a>
+            <h1 id="filename">Code Viewer</h1>
+        </div>
+        <div class="action-buttons">
+            <button id="copy-btn" class="action-btn">Copy</button>
+            <button id="download-btn" class="action-btn">Download</button>
+        </div>
     </header>
 
     <div class="file-info" id="file-path">Loading...</div>
@@ -92,7 +113,8 @@
 
             // Update UI
             document.getElementById('file-path').textContent = filePath;
-            document.getElementById('filename').textContent = filePath.split('/').pop();
+            const fileName = filePath.split('/').pop();
+            document.getElementById('filename').textContent = fileName;
             
             // Determine language
             const codeElement = document.getElementById('code-display');
@@ -108,6 +130,27 @@
                 .then(code => {
                     codeElement.textContent = code;
                     Prism.highlightAll();
+                    
+                    // Set up copy button
+                    document.getElementById('copy-btn').addEventListener('click', () => {
+                        navigator.clipboard.writeText(code)
+                            .then(() => {
+                                const btn = document.getElementById('copy-btn');
+                                btn.textContent = 'Copied!';
+                                setTimeout(() => btn.textContent = 'Copy', 2000);
+                            });
+                    });
+                    
+                    // Set up download button
+                    document.getElementById('download-btn').addEventListener('click', () => {
+                        const blob = new Blob([code], { type: 'text/plain' });
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = fileName;
+                        a.click();
+                        URL.revokeObjectURL(url);
+                    });
                 })
                 .catch(error => {
                     codeElement.textContent = `Error loading file: ${error}\n\nPath: ${filePath}`;
