@@ -1,23 +1,14 @@
-<!--
-    I DID NOT WRITE THIS 
-    Generated through DeepSeek - I do not know complicated HTML 
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Website icon -->
     <link rel="icon" href="logo/favicon.ico" type="image/x-icon">
-    <!-- Link preview (Open Graph)-->
     <meta property="og:title" content="My Programs">
     <meta property="og:description" content="This repository contains an archive of my C and Python code.">
     <meta property="og:url" content="https://pcg06.github.io">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Viewer | My Programs</title>
-    <!-- Prism.js Syntax Highlighting -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" rel="stylesheet">
-    <!-- Line Numbers -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
     <style>
         body {
@@ -45,6 +36,10 @@
             color: #2c3e50;
             margin: 0;
             font-size: 1.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 300px;
         }
         .action-buttons {
             display: flex;
@@ -60,6 +55,7 @@
             border: none;
             cursor: pointer;
             transition: background 0.2s;
+            white-space: nowrap;
         }
         .action-btn:hover {
             background: #34495e;
@@ -76,29 +72,36 @@
             font-family: monospace;
             margin-bottom: -5px;
         }
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .action-buttons {
+                width: 100%;
+                justify-content: flex-end;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="header-left">
-            <a href="index.html" class="back-btn">← Back</a>
+            <a href="index.html" class="action-btn">← Back</a>
             <h1 id="filename">Code Viewer</h1>
         </div>
         <div class="action-buttons">
-            <button id="copy-btn" class="action-btn">Copy</button>
+            <button id="copy-btn" class="action-btn">Copy Code</button>
             <button id="download-btn" class="action-btn">Download</button>
         </div>
     </header>
 
     <div class="file-info" id="file-path">Loading...</div>
-    <pre class="line-numbers"><code class="language-c" id="code-display"></code></pre>
+    <pre class="line-numbers"><code id="code-display"></code></pre>
 
-    <!-- Prism.js Core -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
-    <!-- Language Support -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-c.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-python.min.js"></script>
-    <!-- Line Numbers -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
     
     <script>
@@ -119,7 +122,8 @@
             // Determine language
             const codeElement = document.getElementById('code-display');
             const extension = filePath.split('.').pop().toLowerCase();
-            codeElement.className = `language-${extension === 'py' ? 'python' : 'c'}`;
+            const language = extension === 'py' ? 'python' : 'c';
+            codeElement.className = `language-${language}`;
             
             // Fetch and display code
             fetch(filePath)
@@ -131,24 +135,32 @@
                     codeElement.textContent = code;
                     Prism.highlightAll();
                     
-                    // Set up copy button
-                    document.getElementById('copy-btn').addEventListener('click', () => {
+                    // Copy functionality
+                    const copyBtn = document.getElementById('copy-btn');
+                    copyBtn.addEventListener('click', () => {
                         navigator.clipboard.writeText(code)
                             .then(() => {
-                                const btn = document.getElementById('copy-btn');
-                                btn.textContent = 'Copied!';
-                                setTimeout(() => btn.textContent = 'Copy', 2000);
+                                copyBtn.textContent = 'Copied!';
+                                setTimeout(() => copyBtn.textContent = 'Copy Code', 2000);
+                            })
+                            .catch(err => {
+                                console.error('Copy failed:', err);
+                                copyBtn.textContent = 'Error';
+                                setTimeout(() => copyBtn.textContent = 'Copy Code', 2000);
                             });
                     });
                     
-                    // Set up download button
-                    document.getElementById('download-btn').addEventListener('click', () => {
+                    // Download functionality
+                    const downloadBtn = document.getElementById('download-btn');
+                    downloadBtn.addEventListener('click', () => {
                         const blob = new Blob([code], { type: 'text/plain' });
                         const url = URL.createObjectURL(blob);
                         const a = document.createElement('a');
                         a.href = url;
                         a.download = fileName;
+                        document.body.appendChild(a);
                         a.click();
+                        document.body.removeChild(a);
                         URL.revokeObjectURL(url);
                     });
                 })
