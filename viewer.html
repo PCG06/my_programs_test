@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="logo/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Viewer | My Programs</title>
+    <!-- Prism.js Syntax Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" rel="stylesheet">
+    <!-- Line Numbers -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+            color: #333;
+        }
+        header {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        .back-btn {
+            background: #2c3e50;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        pre[class*="language-"] {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .file-info {
+            background: #2a2a2a;
+            color: #f8f8f2;
+            padding: 10px 15px;
+            border-radius: 8px 8px 0 0;
+            font-family: monospace;
+            margin-bottom: -5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="filename">Code Viewer</h1>
+        <a href="index.html" class="back-btn">← Back to Programs</a>
+    </header>
+
+    <div class="file-info" id="file-path">Loading...</div>
+    <pre class="line-numbers"><code class="language-c" id="code-display"></code></pre>
+
+    <!-- Prism.js Core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <!-- Language Support -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-c.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-python.min.js"></script>
+    <!-- Line Numbers -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const filePath = params.get('file');
+            
+            if (!filePath) {
+                document.getElementById('code-display').textContent = 'Error: No file specified in URL';
+                return;
+            }
+
+            // Update UI
+            document.getElementById('file-path').textContent = filePath;
+            document.getElementById('filename').textContent = filePath.split('/').pop();
+            
+            // Determine language
+            const codeElement = document.getElementById('code-display');
+            const extension = filePath.split('.').pop().toLowerCase();
+            codeElement.className = `language-${extension === 'py' ? 'python' : 'c'}`;
+            
+            // Fetch and display code
+            fetch(filePath)
+                .then(response => {
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    return response.text();
+                })
+                .then(code => {
+                    codeElement.textContent = code;
+                    Prism.highlightAll();
+                })
+                .catch(error => {
+                    codeElement.textContent = `Error loading file: ${error}\n\nPath: ${filePath}`;
+                    console.error('Fetch error:', error);
+                });
+        });
+    </script>
+</body>
+</html>
